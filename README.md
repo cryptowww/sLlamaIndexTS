@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LlamaIndex Next.js
 
-## Getting Started
+## Create Project
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```shell
+npx create-next-app next-llamaindex-1
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm install llamaindex
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## modify the next.config.js
 
-## Learn More
+```javascript
+import withLlamaIndex from "llamaindex/next";
 
-To learn more about Next.js, take a look at the following resources:
+const nextConfig = {};
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export default withLlamaIndex(nextConfig);
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## execute Typescript code DIRECTLY
 
-## Deploy on Vercel
+please refer to the folder app/agent/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+in the folder ,there are 2 files:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. .env for env variables, like OPENAI_API_KEY and OPENAI_BASE_URL
+2. index.ts for the code that will be executed
+
+execute Typescript code via command
+
+```shell
+npx tsx index.ts
+```
+
+so the code does not depend on other packages like nextjs and reactjs.
