@@ -38,3 +38,13 @@ npx tsx index.ts
 ```
 
 so the code does not depend on other packages like nextjs and reactjs.
+
+## execute a Http Request
+
+I develop a http service in api/agent1/route.ts.
+
+you can execute it via command
+
+```shell
+curl -X POST http://localhost:3000/api/agent1
+```
